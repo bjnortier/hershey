@@ -4,15 +4,14 @@ var assert = chai.assert;
 
 var hershey = require('..');
 
-// Test the interpretation of a single line of the 
-// font file
+// Test the interpretation of a single line of the font file
 describe('Line Parser', function() {
 
   it('can convert a line to plotter instructions', function() {
 
     var line = '    8  9MWOMOV RUMUV ROQUQ';
     var expected = {
-      glyph: 8,
+      number: 8,
       left: -5,
       right: 5,
       instructions: [
