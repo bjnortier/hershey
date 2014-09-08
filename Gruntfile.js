@@ -18,6 +18,9 @@ module.exports = function(grunt) {
       unit: {
         src: ['test/**/*.js'],
       },
+      demo: {
+        src: ['demo/js/src/**/*.js'],
+      },
     },
 
     simplemocha: {
@@ -34,6 +37,17 @@ module.exports = function(grunt) {
       },
     },
 
+    webpack: {
+      demo: {
+        entry: "./demo/js/src/demo.js",
+        output: {
+          path: "demo/js",
+          filename: "demo.app.js",
+        },
+        devtool: "#inline-source-map",
+      },
+    },
+
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -41,11 +55,15 @@ module.exports = function(grunt) {
       },
       lib: {
         files: ['<%= jshint.lib.src %>'],
-        tasks: ['jshint:lib', 'unit'],
+        tasks: ['jshint:lib', 'unit', 'webpack'],
       },
       unit: {
         files: ['<%= jshint.unit.src %>'],
         tasks: ['jshint:unit', 'unit'],
+      },
+      demo: {
+        files: ['<%= jshint.demo.src %>'],
+        tasks: ['jshint:demo', 'webpack'],
       },
     },
 
@@ -54,8 +72,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-simple-mocha');
+  grunt.loadNpmTasks('grunt-webpack');
 
   grunt.registerTask('unit', ['simplemocha:unit']);
-  grunt.registerTask('default', ['jshint', 'unit']);
+  grunt.registerTask('default', ['jshint', 'unit', 'webpack']);
 
 };

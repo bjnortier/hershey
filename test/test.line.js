@@ -1,7 +1,6 @@
 var chai = require('chai');
 var assert = chai.assert;
 
-
 var hershey = require('..');
 
 // Test the interpretation of a single line of the font file

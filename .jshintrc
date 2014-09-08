@@ -15,6 +15,9 @@
   "indent": 2,
   "trailing": true,
   "globals": {
+    "requestAnimationFrame": false,
+    "window": false,
+    "THREE": false,
     "describe": false,
     "before": false,
     "beforeEach": false,
