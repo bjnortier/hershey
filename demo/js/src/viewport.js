@@ -77,7 +77,10 @@ module.exports = function(container) {
       return new THREE.Vector3(0, p[0], -p[1]);
     });
 
-    var material = new THREE.LineBasicMaterial({color: 0x000000});
+    var material = new THREE.LineBasicMaterial({
+      color: 0x000000,
+      linewidth: 1,
+    });
     var line = new THREE.Line(geom, material);
     this.scene.add(line);
     return line;
