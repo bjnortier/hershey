@@ -70,7 +70,7 @@ module.exports = function(container) {
     renderer.render(that.scene, camera);
   }
 
-  this.addLine = function(points, i) {
+  this.addLine = function(points) {
 
     var geom = new THREE.Geometry();
     geom.vertices = points.map(function(p) {
@@ -79,10 +79,8 @@ module.exports = function(container) {
 
     var material = new THREE.LineBasicMaterial({color: 0x000000});
     var line = new THREE.Line(geom, material);
-    line.position.y = (i % 10)*20;
-    line.position.z = Math.floor(i/10) * 25;
-
     this.scene.add(line);
+    return line;
   };
 
   init();
