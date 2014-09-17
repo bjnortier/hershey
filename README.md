@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/bjnortier/hershey.png?branch=master)](https://travis-ci.org/bjnortier/hershey)
+
 hershey
 =======
 
