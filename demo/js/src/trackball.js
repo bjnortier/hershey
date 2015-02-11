@@ -1,4 +1,7 @@
 function eventToPosition(event) {
+  event.offsetX = (event.offsetX === undefined) ? event.layerX : event.offsetX;
+  event.offsetY = (event.offsetY === undefined) ? event.layerY : event.offsetY;
+
   return {
     x: event.offsetX,
     y: event.offsetY,
@@ -103,10 +106,12 @@ module.exports = function(viewports) {
     viewport.container.addEventListener('mouseup', that.mouseup, false);
     viewport.container.addEventListener('mouseout', that.mouseup, false);
     viewport.container.addEventListener('mousewheel', that.mousewheel, false);
+    viewport.container.addEventListener('DOMMouseScroll', that.mousewheel, false);
   });
 
   animate();
 
 };
+
 
 
