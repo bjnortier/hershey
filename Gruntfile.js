@@ -81,7 +81,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-simple-mocha');
   grunt.loadNpmTasks('grunt-webpack');
 
-  grunt.registerTask('unit', ['simplemocha:unit']);
+  grunt.registerTask('test', ['simplemocha:unit']);
   grunt.registerTask('default', ['jshint', 'unit', 'webpack']);
 
 };
