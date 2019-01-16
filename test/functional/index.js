@@ -1,13 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createGlobalStyle } from 'styled-components'
-import styledNormalize from 'styled-normalize'
 
 import { stringToPaths } from '../../src'
-
-const GlobalStyle = createGlobalStyle`
-  ${styledNormalize}
-`
 
 const HersheySVG = ({ bounds, paths }) => {
   const { minX, maxX, minY, maxY } = bounds
@@ -35,5 +29,4 @@ render(<div>
   <div><HersheySVG {...stringToPaths('The quick brown fox jumped over the lazy dog'.toUpperCase())} /></div>
   <div><HersheySVG {...stringToPaths('.,:;!?"°$/()|-+=\'#&\\_*[]{}<>~%@')} /></div>
   <div><HersheySVG {...stringToPaths('Unprintable: ^±§')} /></div>
-  <GlobalStyle />
 </div>, document.getElementById('contents'))
