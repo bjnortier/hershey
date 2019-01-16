@@ -9,7 +9,8 @@ const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
 `
 
-const HersheySVG = ({ minX, maxX, minY, maxY, paths }) => {
+const HersheySVG = ({ bounds, paths }) => {
+  const { minX, maxX, minY, maxY } = bounds
   const height = maxY - minY
   const width = maxX - minX
   return <svg height={height + 1} width={width + 1}>
@@ -32,7 +33,7 @@ render(<div>
   <div><HersheySVG {...stringToPaths('Hello World!')} /></div>
   <div><HersheySVG {...stringToPaths('The quick brown fox jumped over the lazy dog')} /></div>
   <div><HersheySVG {...stringToPaths('The quick brown fox jumped over the lazy dog'.toUpperCase())} /></div>
-  <div><HersheySVG {...stringToPaths('+=-!@#$%&*(){}')} /></div>
+  <div><HersheySVG {...stringToPaths('.,:;!?"°$/()|-+=\'#&\\_*[]{}<>~%@')} /></div>
   <div><HersheySVG {...stringToPaths('Unprintable: ^±§')} /></div>
   <GlobalStyle />
 </div>, document.getElementById('contents'))
