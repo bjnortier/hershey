@@ -1,5 +1,5 @@
 import characterNumbers from './characterNumbers'
-import rowmansB64 from '../font/js/rowmans.js'
+import rowmansB64 from './rowmans.js'
 
 /**
  * Convert a character descriptor from the font file

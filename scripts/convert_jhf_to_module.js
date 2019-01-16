@@ -8,5 +8,5 @@ jhfFilenames.forEach(function (sourceFilename) {
   const base64 = fs.readFileSync('font/jhf/' + sourceFilename, 'base64')
   const module = 'export default "' + base64 + '";'
   try { fs.mkdirSync('font/js') } catch (e) {}
-  fs.writeFileSync('font/js/' + /^(.*)\.jhf$/.exec(sourceFilename)[1] + '.js', module)
+  fs.writeFileSync('src/' + /^(.*)\.jhf$/.exec(sourceFilename)[1] + '.js', module)
 })
