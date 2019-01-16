@@ -68,10 +68,12 @@ const rowmans = Buffer.from(rowmansB64, 'base64')
 export const stringToPaths = (string) => {
   if (!string.length) {
     return {
-      minX: 0,
-      maxX: 0,
-      minY: 0,
-      maxY: 0,
+      bounds: {
+        minX: 0,
+        maxX: 0,
+        minY: 0,
+        maxY: 0
+      },
       paths: []
     }
   }
@@ -116,7 +118,7 @@ export const stringToPaths = (string) => {
   })
 
   return {
-    ...bounds,
+    bounds,
     paths
   }
 }
